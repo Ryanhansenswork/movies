@@ -1,0 +1,65 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 23px 23px;
+    height: 8vh;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    margin-left: 40px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    margin-right: 50px; 
+  }
+  
+  .nav-links li:last-child {
+    margin-right: 10px; 
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  .nav-links li a:hover{
+    color: #555;
+  }
+  body{
+    background-image: url(/images/wp3345810-epic-background-hd.jpg);
+    background-size: 100%;
+    background-repeat: repeat;
+    position: relative;
+  }
+  .welcome{
+    height: 25vh;
+    width: 70%;
+    background: #555;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    margin-left: 15%;
+  }
+  h1{
+    font-size: 2em;
+  }
+  p{
+    font-size: 1.2em;
+  }
+  .yo{
+    height: 100vh;
+  }
