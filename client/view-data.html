@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/view-data.css">
 </head>
+<body>
     <body>
         <header>
             <nav class="nav">
@@ -23,20 +25,27 @@
     
         </header>
 
-        <section class="welcome">
-            <h1>
-                Welcome to my Movie Library!
-            </h1>
-            <p>
-                Here you can store information on movies 
-                and retrieve the information when you want!
-            </p>
+        <main>
+            View Movies
+        </main>
 
-        </section>
-        <section class="yo">
-          
+        <table id="movieTable">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Director</th>
+                    <th>Genre</th>
+                    <th>Year Released</th>
+                    <th>IMDB Rating</th>
+                </tr>
+            </thead>
+            <tbody id="moviez">
+                
+            </tbody>
+        </table>
 
-        </section>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="js/viewdata.js"></script>
         
-    </body>
+</body>
 </html>

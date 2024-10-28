@@ -1,0 +1,39 @@
+main{
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    margin-left: 15%;
+    width: 65%;
+    height: 4vh;
+    font-size: 3.5vh;
+    color: aliceblue;
+
+}
+
+
+#movieTable {
+    width: 75%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 12%;
+    border: 2px solid aliceblue;
+}
+
+#movieTable th {
+    background-color: aliceblue;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+
+#movieTable td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid aliceblue;
+    color: aliceblue;
+    background-color: #555;
+}
+

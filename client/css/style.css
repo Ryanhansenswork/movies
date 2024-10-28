@@ -1,4 +1,4 @@
-.navbar {
+.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,31 +13,31 @@
     margin-left: 40px;
   }
   
-  .nav-links {
+  .links {
     display: flex;
     list-style-type: none;
     margin: 0;
     padding: 0;
   }
   
-  .nav-links li {
+  .links li {
     margin-right: 50px; 
   }
   
-  .nav-links li:last-child {
+  .links li:last-child {
     margin-right: 10px; 
   }
   
-  .nav-links li a {
+  .links li a {
     text-decoration: none;
     color: white;
     font-size: 18px;
   }
-  .nav-links li a:hover{
+  .links li a:hover{
     color: #555;
   }
   body{
-    background-image: url(/images/wp3345810-epic-background-hd.jpg);
+    background-image: url(../images/wp3345810-epic-background-hd.jpg);
     background-size: 100%;
     background-repeat: repeat;
     position: relative;
