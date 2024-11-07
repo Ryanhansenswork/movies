@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/write-data.css">
+    <link rel="stylesheet" href="/client/css/style.css">
+    <link rel="stylesheet" href="/client/css/write-data.css">
+
 </head>
 <body>
     <body>
@@ -15,9 +16,9 @@
                   Ryan's Movie Archive
                 </div>
                 <ul class="links">
-                  <li><a href="movies.html">Home</a></li>
-                  <li><a href="write-data.html">Enter Data</a></li>
-                  <li><a href="view-data.html">View Data</a></li>
+                  <li><a href="/home">Home</a></li>
+                  <li><a href="/write-data">Enter Data</a></li>
+                  <li><a href="/view-data">View Data</a></li>
                   <li><a href="">Browse Data</a></li>
                   </ul>
         </nav>
@@ -32,23 +33,23 @@
         <section>
             <div class="labelInput">
                 <label for="Title">Title:</label>
-                <input id="title" type="text"><br>
+                <input id="movieTitle" type="text"><br>
             </div>
             <div class="labelInput">
                 <label for="Title">Director: </label>
-                <input id="director" type="text"><br>
+                <input id="movieDirector" type="text"><br>
             </div>
             <div class="labelInput">
                 <label for="Title">Genre: </label>
-                <input id="genre" type="text"><br>
+                <input id="movieGenre" type="text"><br>
             </div>
             <div class="labelInput">
                 <label for="Title">Year Released: </label>
-                <input id="year" type="text"><br>
+                <input id="movieYear" type="text"><br>
             </div>
             <div class="labelInput">
                 <label for="Title">IMDB Rating: </label>
-                <input id="rating" type="text"><br>
+                <input id="movieRating" type="text"><br>
             </div>
 
             <div class="labelInput">
@@ -56,7 +57,7 @@
                 <button id="clear">Clear</button>
             </div>
         </section>
-
-        <script src="js/write-data.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/client/js/write-data.js"></script>
 </body>
 </html>
