@@ -5,6 +5,47 @@ const { stringify } = require('querystring');
 const DB_FILE = path.join(__dirname, './files/data.txt');
 
 let services = function(app) {
+
+
+   app.delete('/delete-record', function (req, res) {
+    const idToDelete = req.body.id;
+    
+    if (!fs.existsSync(DB_FILE)) {
+        return res.send(JSON.stringify({ msg: "FILE NOT FOUND" }));
+    }
+
+    fs.readFile(DB_FILE, "utf8", function (err, data) {
+        if (err) {
+            return res.send(JSON.stringify({ msg: err }));
+        }
+
+        let movieData = JSON.parse(data);
+        const updatedMovies = movieData.filter(movie => movie.id !== idToDelete);
+
+        fs.writeFile(DB_FILE, JSON.stringify(updatedMovies), function (err) {
+            if (err) {
+                return res.send(JSON.stringify({ msg: err }));
+            }
+
+            res.send(JSON.stringify({ msg: "SUCCESS" }));
+        });
+    });
+});
+
+    app.get('/view-data', function(req, res) {
+        if (!fs.existsSync(DB_FILE)) {
+            return res.send(JSON.stringify({ msg: "FILE NOT FOUND" }));
+        }
+    
+        fs.readFile(DB_FILE, "utf8", function(err, data) {
+            if (err) {
+                return res.send(JSON.stringify({ msg: err }));
+            }
+    
+            res.send(data); 
+        });
+    });
+    
     app.post('/write-record', function(req, res) {
         let id = "mov" + Date.now();
 
@@ -51,6 +92,9 @@ let services = function(app) {
 };
 
 module.exports = services;
+
+
+
 
 
 
