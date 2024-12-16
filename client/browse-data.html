@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/client/css/style.css">
+    <link rel="stylesheet" href="/client/css/browse-data.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/client/js/browse-data.js"></script>
+
+    <script src="/client/js/main.js"></script>
+</head>
+    <body ng-app="movieApp" ng-controller="MovieController">
+        <header>
+            <nav class="nav">
+                <div class="logo">
+                  Ryan's Movie Archive
+                </div>
+                <ul class="links">
+                  <li><a href="/home">Home</a></li>
+                  <li><a href="/write-data">Enter Data</a></li>
+                  <li><a href="/view-data">View Data</a></li>
+                  <li><a href="/browse-data">Browse Data</a></li>
+                  </ul>
+        </nav>
+        
+    
+        </header>
+
+        <main>
+            Browse Movies
+        </main>
+        <div class="movie-record">
+            <h2>Movie Record:</h2>
+            <div class="record-details">
+                <p>Title: {{currentRecord.movieTitle}}</p>
+                <p>Director: {{currentRecord.movieDirector}}</p>
+                <p>Genre: {{currentRecord.movieGenre}}</p>
+                <p>Year Released: {{currentRecord.movieYear}}</p>
+                <p>IMDB Rating: {{currentRecord.movieRating}}</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button ng-click="previousRecord()" ng-disabled="currentIndex === 0">Previous Record</button>
+            <button ng-click="nextRecord()" ng-disabled="currentIndex === movies.length - 1">Next Record</button>
+        </div>
+       
+       
+    
+    </body>
+</html>

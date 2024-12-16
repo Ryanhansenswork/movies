@@ -1,0 +1,72 @@
+main{
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2vh;
+    margin-left: 15%;
+    width: 65%;
+    height: 4vh;
+    font-size: 3.5vh;
+    color: aliceblue;
+
+}
+body {
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+main {
+    padding: 20px;
+    text-align: center;
+    
+}
+
+.movie-record {
+    width: 75%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-left: 13%;
+    display: flex;
+    justify-content: center;
+    background-color: #555;
+    padding: 20px;
+    margin-left: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h2{
+    margin-right: 30px;
+    margin-top: 50px;
+}
+
+.record-details p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    margin-left: 45%;
+    background-color: #333;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+}
+
+.buttons button[disabled] {
+    background-color: #333;
+    color: aliceblue;
+}
+
+.buttons button:hover {
+    background-color: #555;
+    color: #222;
+}

@@ -1,11 +1,14 @@
+const express = require('express');
+const path = require('path');
 const fs = require('fs');
-const path = require("path");
-const { stringify } = require('querystring');
+const app = express();
+
+
+app.use(express.json()); 
 
 const DB_FILE = path.join(__dirname, './files/data.txt');
 
 let services = function(app) {
-
 
    app.delete('/delete-record', function (req, res) {
     const idToDelete = req.body.id;
@@ -32,19 +35,25 @@ let services = function(app) {
     });
 });
 
-    app.get('/view-data', function(req, res) {
-        if (!fs.existsSync(DB_FILE)) {
-            return res.send(JSON.stringify({ msg: "FILE NOT FOUND" }));
-        }
-    
-        fs.readFile(DB_FILE, "utf8", function(err, data) {
-            if (err) {
-                return res.send(JSON.stringify({ msg: err }));
+   app.get("/read-data", (req, res) => {
+    const filePath = path.join(__dirname, "./files/data.txt");
+
+    fs.readFile(filePath, "utf-8", (err, data) => {
+        if (err) {
+            console.error("Error reading data.txt:", err);
+            res.status(500).json({ msg: "Error reading data" });
+        } else {
+            try {
+                const movies = JSON.parse(data);
+                res.status(200).json(movies);
+            } catch (parseError) {
+                console.error("Error parsing data:", parseError);
+                res.status(500).json({ msg: "Error parsing data" });
             }
-    
-            res.send(data); 
-        });
+        }
     });
+});
+    
     
     app.post('/write-record', function(req, res) {
         let id = "mov" + Date.now();
@@ -92,77 +101,3 @@ let services = function(app) {
 };
 
 module.exports = services;
-
-
-
-
-
-
-/*const fs = require('fs');
-const path = require("path");
-
-const DB_FILE = path.join(__dirname + './files/data.txt');
-
-let services = function(app)
-
-{
-    app.post('/write-record', function(req, res)
-{
-    let id = "mov" + Date.now();
-
-    let data = 
-    {
-        id: id,
-        title: req.body.movieTitle,
-        director: req.body.movieDirector, 
-        genre: req.body.moviegenre, 
-        year: req.body.movieYear, 
-        rating:req.body.movieRating
-    }
-    let movieData = [];
-    if(fs.existsSync(DB_FILE))
-    {
-        //read in current database
-        fs.readFile(DB_FILE, "utf8", function(err, data)
-    {
-        if(err)
-        {
-            res.send(JSON.stringify({msg: err}))
-        }
-        else
-        {
-            data = JSON.parse(data);
-
-            movieData.push(data);
-
-            fs.writeFile(DB_FILE, JSON.stringify(movieData), function(err)
-        {
-            if (err)
-            {
-                res.send(JSON.stringify({msg: err}))
-            }
-            else{
-                res.send(JSON.stringify({msg: "SUCCESS"}));
-            }
-        })
-        }
-    })
-    }else{
-        movieData.push(bookData);
-
-        fs.writeFile(DB_FILE, JSON.stringify(movieData), function(err)
-        {
-            if (err)
-            {
-                res.send(JSON.stringify({msg: err}))
-            }
-            else{
-                res.send(JSON.stringify({msg: "SUCCESS"}));
-            }
-        })
-    }
-}
-})
-   
-
-module.exports = services;*/
