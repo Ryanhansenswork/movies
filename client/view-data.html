@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -23,7 +23,7 @@
         </nav>
         
     
-        </header>
+        </header>/*
 
         <main>
             View Movies
@@ -48,5 +48,92 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="/client/js/viewdata.js"></script>
         
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html lang="en" ng-app="movieApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Data</title>
+    <link rel="stylesheet" href="/client/css/style.css">
+    <link rel="stylesheet" href="/client/css/view-data.css">
+</head>
+<body ng-controller="MovieController as movieCtrl">
+    <header>
+        <nav class="nav">
+            <div class="logo">Ryan's Movie Archive</div>
+            <ul class="links">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/write-data">Enter Data</a></li>
+                <li><a href="/view-data">View Data</a></li>
+                <li><a href="/browse-data">Browse Data</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        View Movies
+    </main>
+    <div class="sort-container">
+        <label id="sort" for="sortType">Sort by:</label>
+        <select id="sortType" ng-model="movieCtrl.sortType">
+            <option value="movieDirector">Director</option>
+            <option value="movieGenre">Genre</option>
+            <option value="movieYear">Year</option>
+            <option value="movieRating">IMDB Rating</option>
+        </select>
+    </div>
+
+    <table id="movieTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Director</th>
+                <th>Genre</th>
+                <th>Year Released</th>
+                <th>IMDB Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="movie in movieCtrl.movies | orderBy:movieCtrl.sortType">
+                <td>{{ movie.movieTitle }}</td>
+                <td>{{ movie.movieDirector }}</td>
+                <td>{{ movie.movieGenre }}</td>
+                <td>{{ movie.movieYear }}</td>
+                <td>{{ movie.movieRating }}</td>
+                <td>
+                    <button ng-click="movieCtrl.deleteMovie(movie.id)">Delete</button>
+                    <button ng-click="movieCtrl.openUpdateModal(movie)">Update</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div id="updateModal" ng-if="movieCtrl.showUpdateModal" class="modal">
+        <form ng-submit="movieCtrl.updateMovie(movieCtrl.editMovie)">
+            <h3>Update Movie</h3>
+            <label for="title">Title:</label>
+            <input type="text" id="title" ng-model="movieCtrl.editMovie.movieTitle" required>
+            <label for="director">Director:</label>
+            <input type="text" id="director" ng-model="movieCtrl.editMovie.movieDirector" required>
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" ng-model="movieCtrl.editMovie.movieGenre" required>
+            <label for="movieYear">Year:</label>
+            <input type="number" id="year" ng-model="movieCtrl.editMovie.movieYear" required min="1900" max="2100">
+            
+            <label for="movieRating">Rating:</label>
+            <input type="number" step="0.1" id="rating" ng-model="movieCtrl.editMovie.movieRating" required ng-pattern="/^\d+(\.\d{1,2})?$/" />
+            
+            
+            <button type="submit">Save</button>
+            <button type="button" ng-click="movieCtrl.closeUpdateModal()">Cancel</button>
+        </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/client/js/viewdata-angular.js"></script>
 </body>
 </html>

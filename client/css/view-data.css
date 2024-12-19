@@ -1,3 +1,5 @@
+
+
 main{
     background-color: #333;
     display: flex;
@@ -6,12 +8,34 @@ main{
     margin-top: 2vh;
     margin-left: 15%;
     width: 65%;
-    height: 4vh;
+    /*height: 4vh;*/
+    height: 7vh;
     font-size: 3.5vh;
     color: aliceblue;
 
 }
 
+#sort{
+    color: aliceblue;
+}
+
+.sort-container {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sortType {
+    margin-left: 10px;
+    padding: 5px;
+    font-size: 1.8vh;
+    background-color: #555;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+}
 
 #movieTable {
     width: 75%;
@@ -25,9 +49,7 @@ main{
     background-color: aliceblue;
     padding: 8px;
     text-align: left;
-    
 }
-
 
 #movieTable td {
     padding: 8px;
@@ -37,3 +59,68 @@ main{
     background-color: #555;
 }
 
+#updateModal {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    margin-top: 300px;
+    transform: translate(-50%, -50%);
+    background-color: #333;
+    color: aliceblue;
+    padding: 20px;
+    border: 2px solid aliceblue;
+    border-radius: 8px;
+    width: 40%;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#updateModal form {
+    display: flex;
+    flex-direction: column;
+}
+
+#updateModal label {
+    margin-top: 10px;
+    font-size: 1.5vh;
+}
+
+#updateModal input {
+    margin-top: 5px;
+    padding: 8px;
+    font-size: 1.5vh;
+    border: 1px solid aliceblue;
+    border-radius: 5px;
+    background-color: #555;
+    color: aliceblue;
+}
+
+#updateModal button {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1.5vh;
+    background-color: aliceblue;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#updateModal button:hover {
+    background-color: #777;
+}
+body.modal-open {
+    overflow: hidden;
+}
+
+body.modal-open::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+}
